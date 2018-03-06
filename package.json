@@ -2,10 +2,14 @@
   "name": "mern-stack-template",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "webpack": "webpack",
+    "start": "npm run webpack && nodemon --exec babel-node -- bin/www"
+  },
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-cli": "^6.26.0",
     "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
     "express": "^4.16.2",
     "mongoose": "^5.0.9",
     "nodemon": "^1.17.1",
@@ -16,7 +20,12 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1"
   },
-  "scripts": {
-    "start": "react-scripts start"
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.10",
+    "style-loader": "^0.20.2"
   }
 }
