@@ -3,22 +3,8 @@
 var express = require('express'),
     router = express.Router();
 
-const users = [
-  {
-    "nombre": "Maria"
-  },
-  {
-    "nombre": "Pedro"
-  },
-  {
-    "nombre": "Luis"
-  }
-];
+var UserController = require('./../controllers/user-controller');
 
-router.get('/api/users', (req, res) => {
-  res.json({
-    users: users
-  })
-});
+router.get('/api/users', UserController.getAll);
 
 module.exports = router;

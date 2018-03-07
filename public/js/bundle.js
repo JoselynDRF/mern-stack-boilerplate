@@ -10343,7 +10343,7 @@ var App = function (_Component) {
         return _react2.default.createElement(
           'li',
           { key: i },
-          user.nombre
+          user.name
         );
       });
       return _react2.default.createElement(

@@ -24,7 +24,7 @@ class App extends Component{
 
   render() {
     var users = this.state.users.map((user, i) => {
-      return <li key={i}>{user.nombre}</li>
+      return <li key={i}>{user.name}</li>
     });
     return(
       <div>
