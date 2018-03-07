@@ -1,12 +1,10 @@
-var express = require('express');
-var router = require('./routes/routes.js')
-var path = require('path');
-var app = express();
+const express = require('express');
+const app = express();
+const routes = require('./routes/routes');
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../client'));
+app.use(express.static(__dirname + './../public'));
+app.use(routes);
 
-app.use(express.static(path.join(__dirname, '../client')));
-app.use('/', router);
-
-module.exports=app;
+app.listen(3000, function () {
+  console.log('server on port 3000');
+});
