@@ -10319,7 +10319,7 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
     _this.state = {
-      users: []
+      examples: []
     };
     return _this;
   }
@@ -10329,10 +10329,11 @@ var App = function (_Component) {
     value: function componentWillMount() {
       var _this2 = this;
 
-      _axios2.default.get('http://localhost:3000/api/users').then(function (response) {
-        var users = response.data.users;
+      _axios2.default.get('http://localhost:3000/api/examples').then(function (response) {
+        var examples = response.data.examples;
+
         _this2.setState({
-          users: users
+          examples: examples
         });
       }).catch(function (error) {
         console.log('GET error', error);
@@ -10341,25 +10342,28 @@ var App = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var users = this.state.users.map(function (user, i) {
+      var examples = this.state.examples.map(function (example) {
         return _react2.default.createElement(
           'li',
-          { key: i },
-          user.name
+          { key: example.id },
+          ' ',
+          example.title,
+          ' '
         );
       });
+
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
           'h1',
           null,
-          ' Mi aplicaci\xF3n '
+          ' MERN Stack App '
         ),
         _react2.default.createElement(
           'ul',
           null,
-          users
+          examples
         )
       );
     }
@@ -11260,7 +11264,8 @@ var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _reactDom.render)(_react2.default.createElement(_App2.default, null), document.getElementById('app'));
+(0, _reactDom.render)(_react2.default.createElement(_App2.default, null), document.getElementById('app') // eslint-disable-line
+);
 
 /***/ }),
 /* 110 */

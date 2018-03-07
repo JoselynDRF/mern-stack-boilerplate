@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './app.scss';
 
-class App extends Component{
-  constructor(){
+class App extends Component {
+  constructor() {
     super();
     this.state = {
-      users: []
-    }
+      examples: [],
+    };
   }
 
   componentWillMount() {
-    axios.get('http://localhost:3000/api/users')
+    axios
+      .get('http://localhost:3000/api/examples')
       .then((response) => {
-        const users = response.data.users;
+        const { examples } = response.data;
         this.setState({
-          users: users
+          examples,
         });
       })
       .catch((error) => {
@@ -24,18 +25,18 @@ class App extends Component{
   }
 
   render() {
-    var users = this.state.users.map((user, i) => {
-      return <li key={i}>{user.name}</li>
-    });
-    return(
+    const examples = this.state.examples.map(example => (
+      <li key={example.id}> {example.title} </li>
+    ));
+
+    return (
       <div>
-        <h1> Mi aplicación </h1>
+        <h1> MERN Stack App </h1>
         <ul>
-          {users}
+          {examples}
         </ul>
       </div>
-
-    )
+    );
   }
 }
 

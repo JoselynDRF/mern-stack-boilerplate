@@ -1,10 +1,7 @@
-'use strict';
+const express = require('express');
+const ExampleController = require('./../controllers/example-controller');
 
-var express = require('express'),
-    router = express.Router();
-
-var UserController = require('./../controllers/user-controller');
-
-router.get('/api/users', UserController.getAll);
+const router = express.Router();
+router.get('/api/examples', ExampleController.getAll);
 
 module.exports = router;

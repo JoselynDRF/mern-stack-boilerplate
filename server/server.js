@@ -1,10 +1,12 @@
 const express = require('express');
-const app = express();
 const routes = require('./routes/routes');
 
-app.use(express.static(__dirname + './../public'));
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.static(`${__dirname}./../public`));
 app.use(routes);
 
-app.listen(3000, function () {
-  console.log('server on port 3000');
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
