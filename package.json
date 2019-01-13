@@ -1,5 +1,5 @@
 {
-  "name": "mern-stack-template",
+  "name": "mern-stack-boilerplate",
   "version": "0.0.1",
   "scripts": {
     "build": "webpack --colors",
